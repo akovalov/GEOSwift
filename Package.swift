@@ -13,8 +13,11 @@ let package = Package(
     targets: [
         .target(
             name: "GEOSwift",
-            dependencies: ["geos"],
-            moduleAliases: ["geos": "geosSP"]
+            dependencies: [
+                .product(name: "geos",
+                         package: "geos",
+                         moduleAliases: ["geos": "geosSP"])
+            ]
         ),
         .testTarget(
             name: "GEOSwiftTests",
