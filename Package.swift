@@ -5,7 +5,7 @@ let package = Package(
     name: "GEOSwift",
     platforms: [.iOS(.v12), .macOS(.v10_13), .tvOS(.v12), .watchOS(.v4)],
     products: [
-        .library(name: "GEOSwift", type: .dynamic, targets: ["GEOSwift"])
+        .library(name: "GEOSwift", targets: ["GEOSwift"])
     ],
     dependencies: [
         .package(url: "https://github.com/GEOSwift/geos.git", from: "9.0.0")
@@ -13,7 +13,8 @@ let package = Package(
     targets: [
         .target(
             name: "GEOSwift",
-            dependencies: ["geos"]
+            dependencies: ["geos"],
+            moduleAliases: ["geos": "geosSP"]
         ),
         .testTarget(
             name: "GEOSwiftTests",
